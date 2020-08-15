@@ -27,8 +27,8 @@ or in a one-liner suitable for a `package.json` script:
 ```js
 import ComplexNumber from './ComplexNumber';
 
-// @test
-// expect(abs(new ComplexNumber(1, -1))).toEqual(Math.sqrt(2));
+// @test expect(abs(new ComplexNumber(-3, 4))).toEqual(5);
+// @test expect(abs(new ComplexNumber(1, -1))).toEqual(Math.sqrt(2));
 
 // @test Trivial case
 // import IM_1 from './IM_1';
