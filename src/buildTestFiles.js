@@ -4,6 +4,9 @@ const getInlineTests = require('./getInlineTests');
 const buildTestContent = require('./buildTestContent');
 
 module.exports = function buildTestFiles(modulePath) {
+    if (fs.lstatSync(modulePath).isDirectory())
+        return [];
+
     let { dir, name, ext } = parse(modulePath);
 
     if (/-\d+\.test$/.test(name))

@@ -1,4 +1,11 @@
 module.exports = {
+    target: './**/*.{js,mjs,jsx,ts,tsx}',
+    // @see npm:glob options
+    lookupOptions: {
+        ignore: [
+            './**/node_modules/**/*'
+        ]
+    },
     marker: '@test',
     // Content options:
     // (module) moduleName, modulePath, moduleContent,

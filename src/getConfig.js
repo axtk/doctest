@@ -1,7 +1,11 @@
 const fs = require('fs');
 const { join } = require('path');
-const getArg = require('./getArg');
+const getArgs = require('./getArgs');
 const defaultConfig = require('../doctest.config.js');
+
+const argAliasMap = {
+    '-c': '--config'
+};
 
 let cachedConfig;
 
@@ -9,10 +13,9 @@ module.exports = function getConfig() {
     if (cachedConfig)
         return cachedConfig;
 
-    let config;
+    let argConfig = getArgs(argAliasMap), config;
     let paths = [
-        getArg('--config'),
-        getArg('-c'),
+        argConfig.config,
         './doctest.config.js',
         './doctest.config.json',
         './.doctestrc'
@@ -25,8 +28,11 @@ module.exports = function getConfig() {
         catch(e) {}
     }
 
+    delete argConfig.config;
+
     return (cachedConfig = {
         ...defaultConfig,
-        ...config
+        ...config,
+        ...(Object.keys(argConfig).length === 0 ? null : { lookupOptions: argConfig })
     });
 };
