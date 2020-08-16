@@ -2,9 +2,6 @@
 let command = process.argv[2];
 let args = process.argv.slice(3);
 
-try {
+if (['build', 'cleanup'].includes(command))
     require(`./${command}`)(args);
-}
-catch(e) {
-    console.error('No such command: ' + command);
-}
+else console.error('No such command: ' + command);
