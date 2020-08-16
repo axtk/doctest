@@ -3,34 +3,34 @@ const { join, parse } = require('path');
 const getInlineTests = require('./getInlineTests');
 const buildTestContent = require('./buildTestContent');
 
-module.exports = function buildTestFiles(moduleFile) {
-    let { dir, name, ext } = parse(moduleFile);
+module.exports = function buildTestFiles(modulePath) {
+    let { dir, name, ext } = parse(modulePath);
 
     if (/-\d+\.test$/.test(name))
         return [];
 
-    let moduleContent = fs.readFileSync(moduleFile).toString();
+    let moduleContent = fs.readFileSync(modulePath).toString();
     let tests = getInlineTests(moduleContent);
 
     if (tests.length === 0)
         return tests;
 
-    let suffixLength = Math.max(Math.ceil(Math.log10(tests.length)), 3);
-    let leadingZeros = new Array(suffixLength).fill('0').join('');
+    let counterLength = Math.max(String(tests.length).length, 3);
+    let leadingZeros = new Array(counterLength).fill('0').join('');
 
     for (let i = 0; i < tests.length; i++) {
-        let suffix = (leadingZeros + (i + 1)).slice(-suffixLength);
-        let id = name + '-' + suffix + '.test';
+        let counter = (leadingZeros + (i + 1)).slice(-counterLength);
+        let id = name + '-' + counter + '.test';
 
         tests[i] = {
             id,
+            counter,
             path: join(dir, id + ext),
+            moduleName: name + ext,
+            modulePath,
             moduleContent,
             ...tests[i]
         };
-
-        if (!tests[i].title)
-            tests[i].title = `#${suffix} ${name + ext}`;
 
         fs.writeFileSync(tests[i].path, buildTestContent(tests[i]));
     }

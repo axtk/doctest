@@ -1,9 +1,12 @@
 module.exports = {
     marker: '@test',
-    content: ({ moduleContent, esImports, title, body }) => (
+    // Content options:
+    // (module) moduleName, modulePath, moduleContent,
+    //   (test) title, body, esImports, path, id, counter
+    content: ({ moduleName, moduleContent, title, body, esImports, counter }) => (
         (moduleContent ? moduleContent + '\n\n' : '') +
         (esImports ? esImports + '\n\n' : '') +
-        `test('${title}', () => {\n` +
+        `test('${title || `${moduleName} #${counter}`}', () => {\n` +
             `${body}\n` +
         '});\n'
     ),
