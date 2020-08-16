@@ -52,3 +52,7 @@ export default function abs(z) {
 ```
 $ npm i -D github:axtk/doctest
 ```
+
+## Options
+
+The _doctest_ output format can be customized via an optional `doctest.config.js` file (which should resemble the default [`doctest.config.js`](doctest.config.js)). It will be picked either from the application root or from the optional `-c <config_path>` command line argument.
