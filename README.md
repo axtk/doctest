@@ -47,6 +47,8 @@ export default function abs(z) {
 }
 ```
 
+\+ [Unit testing of class methods](https://github.com/axtk/complex/blob/master/src/ComplexNumber.js)
+
 ## Installation
 
 ```
