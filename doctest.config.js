@@ -1,10 +1,10 @@
 module.exports = {
     marker: '@test',
-    content: (
-        '${moduleContent}\n\n' +
-        '${esImports}\n\n' +
-        'test(\'${title}\', () => {\n' +
-            '${body}\n' +
+    content: ({ moduleContent, esImports, title, body }) => (
+        (moduleContent ? moduleContent + '\n\n' : '') +
+        (esImports ? esImports + '\n\n' : '') +
+        `test('${title}', () => {\n` +
+            `${body}\n` +
         '});\n'
     ),
     indentation: {

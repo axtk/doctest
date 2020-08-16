@@ -10,5 +10,8 @@ module.exports = function buildTestContent(data) {
             return acc;
         }, {});
 
+    if (typeof config.content === 'function')
+        return config.content(preprocessedData);
+
     return buildString(config.content, preprocessedData);
 };
