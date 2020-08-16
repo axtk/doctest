@@ -4,9 +4,6 @@
   "description": "Inline unit tests for JS",
   "main": "index.js",
   "bin": "./index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/axtk/doctest.git"
