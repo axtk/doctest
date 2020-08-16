@@ -24,9 +24,9 @@ or in a one-liner suitable for a `package.json` script:
   "test": "npx doctest build ./src/**/*.js && npx jest && npx doctest cleanup",
 ```
 
-For the sake of separation of concerns, _doctest_ only prepares temporary test files based on the content of the comments and cleans them up, once a test run is over.
+_Doctest_ generates temporary test files based on the content of the comments and cleans up these files, once a test run is over.
 
-The job of running the generated tests is entrusted to a dedicated unit testing utility (such as _jest_ in the setting above) which is not part of this package. The choice of the testing utility is up to the developer's preference.
+For the sake of separation of concerns, the job of running the generated tests is entrusted to a dedicated unit testing utility (such as _jest_ in the setting above) which is not part of this package. The choice of the testing utility is up to the developer's preference.
 
 ## Example
 
@@ -55,4 +55,4 @@ $ npm i -D github:axtk/doctest
 
 ## Options
 
-The _doctest_ output format can be customized via an optional `doctest.config.js` file (which should resemble the default [`doctest.config.js`](doctest.config.js)). It will be picked either from the application root or from the optional `-c <config_path>` command line argument.
+The _doctest_ output format can be customized via an optional `doctest.config.js` file (which should resemble the default [`doctest.config.js`](doctest.config.js)). The config will be picked either from the application root or from the location specified in the optional `-c <config_path>` command line argument.
