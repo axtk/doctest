@@ -3,7 +3,7 @@ const { join } = require('path');
 const config = require('./src/getConfig')();
 
 function cleanUp() {
-    let listFile = join(process.cwd(), config.testListLocation);
+    let listFile = join(process.cwd(), config.listPath);
 
     if (!fs.existsSync(listFile))
         return;

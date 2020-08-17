@@ -4,7 +4,7 @@ const config = require('./getConfig')();
 
 module.exports = function buildTestList(tests) {
     fs.writeFileSync(
-        join(process.cwd(), config.testListLocation),
+        join(process.cwd(), config.listPath),
         JSON.stringify(tests.map(t => t.path), null, 2)
     );
 }
