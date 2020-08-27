@@ -1,12 +1,12 @@
 # doctest
 
-_Generates unit tests from inline comments in JS code_
+_Inline unit testing of JS code_
 
-This approach is inspired by the Python _[doctest](https://docs.python.org/3/library/doctest.html)_ library enabling the developer to run tests from a docstring comment next to the code. For simple unit tests, it is convenient when they are close at hand.
+This approach is inspired by the Python _[doctest](https://docs.python.org/3/library/doctest.html)_ library enabling the developer to run small unit tests from a docstring comment next to the code, which is a quick and handy way to do unit testing.
 
-Doctests are easy to read, they can work as human-readable examples giving insights to the module's use cases and can be regarded as an extension to _[JSDoc](https://jsdoc.app/)_.
+Doctests are easy to read, they can work as human-readable examples giving insights to the module's use cases and can be regarded as an extension to the module's documentation (such as _[JSDoc](https://jsdoc.app/)_).
 
-They are also easy to write, and in the process of development, their presence or absence in the code comes immediately obvious without the need to look through other files and folders.
+They are also easy to write, and in the process of development, they can be immediately spotted without the need to look through other files and folders.
 
 Doctests are also a shorter path to [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development).
 
