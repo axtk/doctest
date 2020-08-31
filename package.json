@@ -1,7 +1,7 @@
 {
   "name": "doctest",
   "version": "1.0.0",
-  "description": "Inline unit tests for JS",
+  "description": "Inline unit testing of JS code",
   "main": "index.js",
   "bin": "./index.js",
   "repository": {
