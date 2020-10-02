@@ -3,16 +3,16 @@ const { join } = require('path');
 const config = require('./src/getConfig')();
 
 function cleanUp() {
-    let listFile = join(process.cwd(), config.listPath);
+    let dumpFile = join(process.cwd(), config.dumpPath);
 
-    if (!fs.existsSync(listFile))
+    if (!fs.existsSync(dumpFile))
         return;
 
-    let files = JSON.parse(fs.readFileSync(listFile).toString());
+    let files = fs.readFileSync(dumpFile).toString().split(/\r?\n/);
     for (let file of files)
-        fs.existsSync(file) && fs.unlinkSync(file);
+        file && fs.existsSync(file) && fs.unlinkSync(file);
 
-    fs.unlinkSync(listFile);
+    fs.unlinkSync(dumpFile);
 }
 
 if (require.main === module)

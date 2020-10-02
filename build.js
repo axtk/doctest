@@ -7,10 +7,10 @@ function build(options) {
     if (Array.isArray(options))
         options = options[0] ? { target: options[0] } : null;
 
-    let { target, lookupOptions } = { ...config, ...options };
+    let { target, targetOptions } = { ...config, ...options };
     let tests = [];
 
-    for (let file of glob.sync(target, lookupOptions))
+    for (let file of glob.sync(target, targetOptions))
         tests = tests.concat(buildTestFiles(file));
 
     buildTestList(tests);

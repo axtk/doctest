@@ -6,7 +6,7 @@ This approach is inspired by the Python _[doctest](https://docs.python.org/3/lib
 
 Doctests are easy to read, they can work as human-readable examples giving insights to the module's use cases and can be regarded as an extension to the module's documentation (such as _[JSDoc](https://jsdoc.app/)_).
 
-They are also easy to write, and in the process of development, they can be immediately spotted without the need to look through other files and folders.
+They are also easy to write, and in the process of development, they can be immediately spotted without the need to look through other files and folders. And if you remove a module file, the doctests are immediately removed as well.
 
 Doctests are also a shorter path to [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development).
 
@@ -47,7 +47,7 @@ or in a one-liner suitable for a `package.json` script:
   "test": "npx doctest build ./src/**/*.js && npx jest && npx doctest cleanup",
 ```
 
-_Doctest_ generates temporary test files based on the content of the comments in the code and cleans up these files, once a test run is over.
+_Doctest_ generates temporary test files based on the content of the comments in the code and cleans up these files, once a test run is over. This is represented by the commands `doctest build` and `doctest cleanup`. The list of test files generated in the build phase is stored in the temporary `.doctestdump` file which can be used during the test phase.
 
 For the sake of separation of concerns, the job of running the generated tests is entrusted to a dedicated unit testing utility (such as _jest_ in the setting above) which is not part of this package. The choice of the testing utility is up to the developer's preference.
 

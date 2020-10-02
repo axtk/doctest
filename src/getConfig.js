@@ -33,6 +33,6 @@ module.exports = function getConfig() {
     return (cachedConfig = {
         ...defaultConfig,
         ...config,
-        ...(Object.keys(argConfig).length === 0 ? null : { lookupOptions: argConfig })
+        ...(Object.keys(argConfig).length === 0 ? null : { targetOptions: argConfig })
     });
 };
